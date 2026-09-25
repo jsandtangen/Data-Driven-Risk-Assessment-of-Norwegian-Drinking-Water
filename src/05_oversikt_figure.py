@@ -3,7 +3,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-c = pd.read_csv("data/vannverk_clean.csv", encoding="utf-8-sig")
+ROOT = Path(__file__).resolve().parents[1]
+
+c = pd.read_csv(ROOT / "data" / "processed" / "01_vannverk.csv", encoding="utf-8-sig")
 
 fig, ax = plt.subplots(2, 2, figsize=(13, 9))
 
@@ -36,5 +38,5 @@ ax[1, 1].set_ylabel("Andel")
 ax[1, 1].set_xlabel("")
 
 plt.tight_layout()
-plt.savefig(Path(__file__).parent / "oversikt.png", dpi=200)
+plt.savefig(ROOT / "results" / "figures" / "oversikt.png", dpi=200)
 plt.show()

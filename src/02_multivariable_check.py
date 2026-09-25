@@ -8,12 +8,15 @@ men fortsatt enkelt: lineaer logistisk regresjon på to log-transformerte
 prediktorer.
 """
 
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import statsmodels.api as sm
 
+ROOT = Path(__file__).resolve().parents[1]
+
 # ---- 1. Last inn og rydd ----
-df = pd.read_csv("data/01_vannverk.csv")
+df = pd.read_csv(ROOT / "data" / "processed" / "01_vannverk.csv")
 
 TARGET = "avvik"
 PRED_1 = "vannprod"

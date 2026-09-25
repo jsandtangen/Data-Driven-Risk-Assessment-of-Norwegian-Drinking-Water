@@ -1,4 +1,3 @@
-data_unfiltered/
-data/
+data/processed/
 __pycache__/
-data/
+.ipynb_checkpoints/

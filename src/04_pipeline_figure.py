@@ -1,7 +1,10 @@
+from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
+
+ROOT = Path(__file__).resolve().parents[1]
 
 TXT = {
  "en": dict(
@@ -103,7 +106,7 @@ def draw(lang):
     ax.text(14.975, mid_y - 0.4, t["csvsub"], ha="center", va="center", fontsize=8, color="#555555", linespacing=1.05)
 
     ax.text(8, 0.3, t["foot"], ha="center", va="center", fontsize=8.4, color="#666666", style="italic")
-    fig.savefig("pipeline.png", dpi=300, bbox_inches="tight", facecolor="white")
+    fig.savefig(ROOT / "results" / "figures" / "pipeline.png", dpi=300, bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
 draw("en")

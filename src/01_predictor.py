@@ -9,13 +9,17 @@ Target: avvik (0/1) - hadde vannverket minst ett avvik dette året?
 Prediktor (foreløpig): vannprod (m3 vannproduksjon)
 """
 
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.nonparametric.smoothers_lowess import lowess
 
+ROOT = Path(__file__).resolve().parents[1]
+FIG_DIR = ROOT / "results" / "figures"
+
 # ---- 1. Last inn data ----
-df = pd.read_csv("data/01_vannverk.csv")
+df = pd.read_csv(ROOT / "data" / "processed" / "01_vannverk.csv")
 
 TARGET = "avvik"
 PREDICTOR = "vannprod"
@@ -48,6 +52,6 @@ plt.ylabel("Sannsynlighet for avvik")
 plt.title(f"Sammenheng mellom {PREDICTOR} og avvik")
 plt.legend()
 plt.tight_layout()
-plt.savefig("01_eda_single_predictor.png", dpi=150)
+plt.savefig(FIG_DIR / "01_eda_single_predictor.png", dpi=150)
 print("\nFigur lagret: 01_eda_single_predictor.png")
 plt.show()
