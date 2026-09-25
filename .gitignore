@@ -1,5 +1,4 @@
 data_unfiltered/
 data/
 __pycache__/
-vannverk_aar/
-vannverk_clean/
+data/
